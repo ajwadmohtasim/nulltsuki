@@ -1,5 +1,6 @@
 *This note uses XAMPP for MySQL and assumes, it's already set up.*
 Before starting, here are the SQL commands at a glance:
+
 <div align="center">
 
 | SQL Command       | Description                      |

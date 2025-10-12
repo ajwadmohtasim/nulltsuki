@@ -5,7 +5,7 @@ tag:
 ---
 
 
-![[Pasted image 20251011222950.png]]%%  %%
+![[8086 block diagram.png]]%%  %%
 
 # Flags
 %% ![[Flags Registers.png | 700 center]] %%
