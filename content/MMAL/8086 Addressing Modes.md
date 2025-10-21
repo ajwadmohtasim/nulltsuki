@@ -144,7 +144,7 @@ syntax: MOV register, [base_register][index_register]+displacement
 ```
 Example:
 ```
-MOV CL,[BX][DI]+8
+MOV CL,[BX][DI]
 MOV CH,[BX][SI]+20
 MOV AH,[BP][DI]+12
 MOV DX,[BP+ SI+ 0AH]

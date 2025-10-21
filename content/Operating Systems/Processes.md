@@ -7,7 +7,7 @@ tags:
 
 ## What is a Process?
 <u>A process is an instance of a program in execution.</u>
-
+![[CPU & IO Burst.png | center]]
 When we write a code and compile it, a executable file (.exe) is stored in non-volatile (SSD, HDD) storage.  When we run the program, the OS loads the executable into the RAM (volatile). This instance of the program is a process and it has it's own memory layout.
 ![[3_01_Process_Memory.jpg | 200 right]]The process memory layout is divided into 4 sections.
 
