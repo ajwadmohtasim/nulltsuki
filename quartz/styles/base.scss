@@ -492,6 +492,43 @@ pre {
       width: 3rem;
     }
   }
+
+  // Terminal-style code blocks
+  &:has(> code[data-language="terminal"]) {
+    background: #2c2c2c;
+    border: 1px solid #3e3e3e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    & > code[data-language="terminal"] {
+      color: #d4d4d4;
+      
+      & > [data-line] {
+        &::before {
+          content: ">";
+          counter-increment: none;
+          width: auto;
+          margin-right: 0.5rem;
+          color: #4ec9b0;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // Dark mode terminal
+  :root[saved-theme="dark"] &:has(> code[data-language="terminal"]) {
+    background: #282a2c;
+    border: 1px solid #30363d;
+    
+    & > code[data-language="terminal"] {
+      color: #c9d1d9;
+      
+      & > [data-line]::before {
+        color: #58a6ff;
+      }
+    }
+  }
 }
 
 code {
