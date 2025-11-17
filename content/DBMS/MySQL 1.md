@@ -5,7 +5,7 @@ tags:
 ---
 
 ## Table Creation
-```
+```terminal
 Create table Customer
 (
     Cust_id VARCHAR(12) NOT NULL,
@@ -14,7 +14,6 @@ Create table Customer
     Cust_street VARCHAR(12),
     Cust_city VARCHAR(12)
 );
-
 
 Create table Account
 (
@@ -30,7 +29,6 @@ Create table Branch
     Assets DECIMAL(20,5)
 );
 
-
 Create table Employee
 (
     Employee_id VARCHAR(12),
@@ -42,7 +40,6 @@ Create table Employee
     Salary DECIMAL(10,3),
     MGR VARCHAR(12)
 );
-
 
 Create table SALGRADE
 (
@@ -72,7 +69,7 @@ Create table Depositor
 ```
 
 ## Data Insertion
-```
+```terminal
 INSERT INTO customer VALUES('C00000000001','Jones','1982-01-11','Main','Harrison');
 INSERT INTO customer VALUES('C00000000002','Smith','1958-01-22','North','Rye');
 INSERT INTO customer VALUES('C00000000003','Hayes','1962-02-23','Main','Harrison');
@@ -213,6 +210,98 @@ select concat(employee_id, ' has birthday on', date_format(employee_dob, ' %D of
 
 DATE_FORMAT converts dates into various readable formats. The format specifiers (%e, %M, %Y, %D) control how the date appears - day, month name, year, etc. This makes dates more user-friendly in reports.
 
+```terminal
++----------------------------------------+
+| date_format(employee_dob, '%e %M, %Y') |
++----------------------------------------+
+| 11 January, 1982                       |
+| 22 January, 1958                       |
+| 23 February, 1962                      |
+| 24 February, 1964                      |
+| 25 October, 1956                       |
+| 26 November, 1982                      |
+| 27 December, 1975                      |
+| 28 March, 1978                         |
+| 27 March, 1974                         |
+| 21 April, 1956                         |
+| 21 April, 1974                         |
+| 19 April, 1979                         |
+| 29 April, 1974                         |
+| 18 May, 1976                           |
+| 17 May, 1973                           |
+| 14 May, 1982                           |
+| 11 May, 1980                           |
+| 23 June, 1982                          |
+| 26 June, 1981                          |
+| 22 June, 1981                          |
+| 27 July, 1981                          |
+| 24 July, 1974                          |
+| 15 August, 1977                        |
+| 17 August, 1978                        |
+| 20 September, 1979                     |
+| 1 September, 1972                      |
++----------------------------------------+
++-------------------------------------------+
+| date_format(employee_dob, '%D - %M - %Y') |
++-------------------------------------------+
+| 11th - January - 1982                     |
+| 22nd - January - 1958                     |
+| 23rd - February - 1962                    |
+| 24th - February - 1964                    |
+| 25th - October - 1956                     |
+| 26th - November - 1982                    |
+| 27th - December - 1975                    |
+| 28th - March - 1978                       |
+| 27th - March - 1974                       |
+| 21st - April - 1956                       |
+| 21st - April - 1974                       |
+| 19th - April - 1979                       |
+| 29th - April - 1974                       |
+| 18th - May - 1976                         |
+| 17th - May - 1973                         |
+| 14th - May - 1982                         |
+| 11th - May - 1980                         |
+| 23rd - June - 1982                        |
+| 26th - June - 1981                        |
+| 22nd - June - 1981                        |
+| 27th - July - 1981                        |
+| 24th - July - 1974                        |
+| 15th - August - 1977                      |
+| 17th - August - 1978                      |
+| 20th - September - 1979                   |
+| 1st - September - 1972                    |
++-------------------------------------------+
++---------------------------------------------------------------------------------+
+| concat(employee_id, ' has birthday on', date_format(employee_dob, ' %D of %M')) |
++---------------------------------------------------------------------------------+
+| E00000000001 has birthday on 11th of January                                    |
+| E00000000002 has birthday on 22nd of January                                    |
+| E00000000003 has birthday on 23rd of February                                   |
+| E00000000004 has birthday on 24th of February                                   |
+| E00000000005 has birthday on 25th of October                                    |
+| E00000000006 has birthday on 26th of November                                   |
+| E00000000007 has birthday on 27th of December                                   |
+| E00000000008 has birthday on 28th of March                                      |
+| E00000000009 has birthday on 27th of March                                      |
+| E00000000010 has birthday on 21st of April                                      |
+| E00000000011 has birthday on 21st of April                                      |
+| E00000000012 has birthday on 19th of April                                      |
+| E00000000013 has birthday on 29th of April                                      |
+| E00000000014 has birthday on 18th of May                                        |
+| E00000000015 has birthday on 17th of May                                        |
+| E00000000016 has birthday on 14th of May                                        |
+| E00000000017 has birthday on 11th of May                                        |
+| E00000000018 has birthday on 23rd of June                                       |
+| E00000000019 has birthday on 26th of June                                       |
+| E00000000020 has birthday on 22nd of June                                       |
+| E00000000021 has birthday on 27th of July                                       |
+| E00000000022 has birthday on 24th of July                                       |
+| E00000000023 has birthday on 15th of August                                     |
+| E00000000024 has birthday on 17th of August                                     |
+| E00000000025 has birthday on 20th of September                                  |
+| E00000000026 has birthday on 1st of September                                   |
++---------------------------------------------------------------------------------+
+```
 ### Logical Operators
 
 ```sql
@@ -247,7 +336,19 @@ select * from customer where cust_name like 's%';
 ```
 
 LIKE performs pattern matching. The '%' wildcard represents any sequence of characters. The first query finds names containing "th" anywhere (like Smith), while the second finds names starting with 's'.
+```terminal
++--------------+-----------+------------+-------------+-----------+
+| Cust_id      | Cust_name | Cust_dob   | Cust_street | Cust_city |
++--------------+-----------+------------+-------------+-----------+
+| C00000000002 | Smith     | 1958-01-22 | North       | Rye       |
++--------------+-----------+------------+-------------+-----------+
 
++--------------+-----------+------------+-------------+-----------+
+| Cust_id      | Cust_name | Cust_dob   | Cust_street | Cust_city |
++--------------+-----------+------------+-------------+-----------+
+| C00000000002 | Smith     | 1958-01-22 | North       | Rye       |
++--------------+-----------+------------+-------------+-----------+
+```
 ### ORDER BY
 
 ```sql
@@ -276,14 +377,6 @@ alter table customer drop column temp_column;
 ```
 
 This permanently removes a column and all its data from a table. Use carefully as this operation cannot be undone.
-
-### Modifying Data Types
-
-```sql
--- alter table customer modify column cust_street date;
-```
-
-This changes the data type of an existing column. The column must be empty or the data must be compatible with the new type. This is commented out because it would fail if data exists.
 
 ---
 
@@ -654,7 +747,7 @@ where cust_name = "Jones";
 select concat("Customer: ", cust_name, " Currently resides in ", cust_city) as "Customer City" from customer;
 ```
 Output:
-```
+```terminal
 +---------------------------------------------------+
 | Customer City                                     |
 +---------------------------------------------------+
@@ -685,7 +778,7 @@ order by a.balance desc
 limit 5;
 ```
 output:
-```
+```terminal
 +-----------+------------+-----------+
 | cust_name | account_id | balance   |
 +-----------+------------+-----------+
@@ -725,7 +818,7 @@ ORDER BY a.balance DESC;
 SELECT summary_info FROM financial_summary;
 ```
 output:
-```
+```terminal
 +--------------------------------------------------------------------------------------------------+
 | summary_info                                                                                     |
 +--------------------------------------------------------------------------------------------------+
@@ -748,7 +841,7 @@ having employee_city is not null
 order by employee_city;
 ```
 output:
-```
+```terminal
 +---------------+------------+------------+----------------+
 | employee_city | Min Salary | Max Salary | Average Salary |
 +---------------+------------+------------+----------------+
@@ -767,11 +860,24 @@ output:
 
 5. Show the customer born after 1960 with total balance > 600
 ```sql
-select c.cust_city, sum(a.balance) as 'Total Balance', c.cust_dob
-from customer c
-natural join depositor d
-natural join account a
-where c.cust_dob > '1960-1-1'
-group by c.cust_city
-having sum(a.balance) > 600;
+SELECT 
+    c.Cust_id,
+    c.Cust_name,
+    c.Cust_dob,
+    SUM(a.balance) AS Total_Balance
+FROM Customer c
+JOIN Depositor d ON c.Cust_id = d.Cust_id
+JOIN Account a ON d.Account_id = a.Account_id
+WHERE c.Cust_dob > '1960-01-01'
+GROUP BY c.Cust_id, c.Cust_name, c.Cust_dob
+HAVING SUM(a.balance) > 600;
+```
+output:
+```terminal
++--------------+-----------+------------+---------------+
+| Cust_id      | Cust_name | Cust_dob   | Total_Balance |
++--------------+-----------+------------+---------------+
+| C00000000001 | Jones     | 1982-01-11 |    1400.00000 |
+| C00000000006 | Turner    | 1982-11-26 |     700.00000 |
++--------------+-----------+------------+---------------+
 ```
