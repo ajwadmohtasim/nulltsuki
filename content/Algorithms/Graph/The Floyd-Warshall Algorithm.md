@@ -1,6 +1,5 @@
 ---
-title: Example Title
+title: Floyd-Warshall Algorithm
 draft: true
 tags:
-  - example-tag
 ---
