@@ -161,7 +161,24 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     textTransform(_ctx, src) {
       // do comments at text level
       if (opts.comments) {
+        // Protect code blocks from comment removal
+        const codeBlockRegex = /```[\s\S]*?```/g
+        const codeBlocks: string[] = []
+        let codeBlockIndex = 0
+        
+        // Extract and replace code blocks with placeholders
+        src = src.replace(codeBlockRegex, (match) => {
+          codeBlocks.push(match)
+          return `__CODE_BLOCK_${codeBlockIndex++}__`
+        })
+        
+        // Remove comments from non-code-block content
         src = src.replace(commentRegex, "")
+        
+        // Restore code blocks
+        src = src.replace(/__CODE_BLOCK_(\d+)__/g, (match, index) => {
+          return codeBlocks[parseInt(index)]
+        })
       }
 
       // pre-transform blockquotes

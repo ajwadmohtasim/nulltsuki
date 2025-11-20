@@ -1,3 +1,9 @@
+---
+title: Syntax Analysis
+draft: true
+tags:
+---
+
 ![[Parser.png | 700 center]]
 
 There are three general types of parsers for grammars: universal, top-down, and bottom-up. Universal parsing methods such as the Cocke-Younger-Kasami algorithm and Earley's algorithm can parse any grammar. But these are in-efficient. 
