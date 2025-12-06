@@ -1,6 +1,6 @@
 ---
 title: CSE 3104 Compiler Laboratory Lecture 2
-draft:
+draft: true
 tags:
 ---
 ## **Theory: Flex Fundamentals**

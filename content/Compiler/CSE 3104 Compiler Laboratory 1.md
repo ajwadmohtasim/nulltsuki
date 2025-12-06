@@ -1,6 +1,6 @@
 ---
 title: CSE 3104 Compiler Laboratory Lecture 1
-draft:
+draft: true
 tags:
 ---
 A compiler is a translator program that translates a program written in High-Level Language (HLL) - the source program - into an equivalent program in Machine-Level Language (MLL) - the target program.

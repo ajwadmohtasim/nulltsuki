@@ -1,6 +1,6 @@
 ---
 title: Compiler Lab
-draft:
+draft: true
 tags:
 ---
 

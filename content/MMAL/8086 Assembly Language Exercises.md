@@ -1,6 +1,6 @@
 ---
 title: 8086 Assembly Language Exercises
-draft:
+draft: true
 tag:
 ---
 
