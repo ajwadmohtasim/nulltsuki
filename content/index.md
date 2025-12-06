@@ -3,8 +3,12 @@ title: Nulltsuki
 draft: false
 tags:
 ---
-Writing academic notes and all
+My domain for all academic notes
 
-# 3-1
-## CSE3109 : Data Communication and
-- [[]]
+## CSE3109 : Data Communication
+- [[Data Communication]]
+- [[Protocol Architecture]]
+- [[Transmission Impairments]]
+- [[Transmission Media]]
+- [[Cyclic Redundancy Check (CRC)]]
+- [[Multiplexing]]
