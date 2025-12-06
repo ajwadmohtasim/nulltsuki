@@ -8,10 +8,10 @@ Multiplexing combines multiple signals or data streams into one signal over a sh
 There are $n$ inputs to a Multiplexer and the Multiplexer is connected by a single data link to a Demultiplexer. The link can carry $n$ separate channels of data.  The multiplexer would combine the data and transmit over a higher-capacity data link which will then be demultiplexed by the Demultiplexer into $n$ outputs. 
 ![[Multiplexing.png | center]]
 There are mainly two forms of multiplexing - FDM and TDM. 
-1. [[#FDM (Frequency Division Multiplexing) | FDM (Frequency Division Multiplexing) - Analog]]
+1. [[#FDM (Frequency Division Multiplexing)|FDM (Frequency Division Multiplexing) - Analog]]
 2. WDM (Wavelength Division Multiplexing) - Analog
-3. [[#Synchronous TDM (Time-Division Multiplexing) | Synchronous TDM (Synchronous Time Division Multiplexing) - Digital]]
-4. [[#Statistical TDM (Time-Division Multiplexing)] | Statistical TDM (Statistical Time Division Multiplexing) - Digital]]
+3. [[#Synchronous TDM (Time-Division Multiplexing)|Synchronous TDM (Synchronous Time Division Multiplexing) - Digital]]
+4. [[#Statistical TDM (Time-Division Multiplexing)|Statistical TDM (Statistical Time Division Multiplexing) - Digital]]
 
 For simpler context, FDM is most heavily used in radio or television sets. TDM on the other hand is commonly used for multiplexing digitized voice streams and data streams. There are other applications of it however. 
 ## FDM (Frequency Division Multiplexing)
