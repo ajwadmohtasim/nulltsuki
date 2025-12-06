@@ -232,3 +232,84 @@ void yyerror(const char* s) {
 
 int yywrap() {return 1;}
 ```
+
+# Problem 2 [another version]
+
+```
+%{
+#include<stdio.h>
+#include<stdlib.h>
+int yylex(void);
+void yyerror(const char *s);
+float result = 0;
+%}
+
+%union{ float fval; }
+%token <fval> NUMBER
+%type <fval> E E1 T T1 F 
+
+%left '+''-'
+%left '*''/'
+%right UMINUS
+
+%%
+input   :
+        | input line 
+        ;
+line    : '\n'          
+        | E '\n'        { result = $1; printf("Valid Expression. Result = %g\n", result); }
+        ;
+E       : T E1          { $$ = $1 + $2; }
+        ;
+E1      : '+' T E1      { $$ = $2 + $3; }
+        | '-' T E1      { $$ = -$2 + $3; }
+        |               { $$ = 0; }
+        ;
+T       : F T1          { $$ = $1 * $2; }
+        ;
+T1      : '*' F T1      { $$ = $2 * $3; }
+        | '/' F T1      {
+                            if($2 == 0)
+                               { yyerror("Division by zero is not possible."); return 1; }
+                            else
+                                $$ = (1.0/$2) * $3;
+                        }
+        |               { $$ = 1; }
+        ;
+F       : NUMBER        { $$ = $1; }
+        | '(' E ')'     { $$ = $2; }
+        | '-' F         { $$ = -$2; }
+        ;
+%%
+
+void yyerror(const char *s){
+    fprintf(stderr, "Error: %s\n", s);
+}
+
+int main(){
+    printf("Enter arithmatic expression: \n");
+    if(yyparse()!=0)
+        printf("Invalid Expression.\n");
+    return 0;
+}
+```
+
+```
+%{
+    #include "parser.tab.h"
+    #include<stdio.h>
+    #include<stdlib.h>
+    extern YYSTYPE yylval;
+%}
+
+%%
+[0-9]+(\.[0-9]+)?           { yylval.fval = atof(yytext); return NUMBER; }
+[+\-*/()]                   { return yytext[0]; }
+[\n]                        { return '\n'; }
+.                           
+%%
+
+int yywrap(){
+    return 1;
+}
+```
