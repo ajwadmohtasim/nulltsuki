@@ -1,6 +1,6 @@
 ---
 title: MATLAB LAB
-draft:
+draft: true
 tags:
 ---
 ## SIGNAL
