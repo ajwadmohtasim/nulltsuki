@@ -53,7 +53,6 @@ We then have **Schedulers** - who decides which process gets CPU or other resour
 3. Long-Term Scheduling
 
 <u>Short-Term Scheduler</u> decides which available process will be executed by the processor. This runs very frequently, about 100ms, quickly swapping one process out of the CPU with another in.  <u>Medium-Term Scheduler</u> swaps one or more processes out of the ready queue system for few seconds, allowing smaller faster jobs to finish up quickly or to free up RAM. <u>Long-Term Schedulers</u> are typical batch system that decides the pool of processes to be executed by deciding advanced scheduling algorithms. They thereby controls the level of **Multiprogramming**.
-![[Queue Diagram for Schedule.png| 700 center]]
 
 *Note that - Ready, Suspend queue and Blocked, Suspended queue are different. Blocked, Suspended queues are Ready processes requiring and I/O event to complete and to free up RAM it is swapped from the Ready Queue. Meanwhile, Ready, suspended processes are only swapped to free up RAMs or to prioritize a smaller-faster job.*
 ## Context Switch

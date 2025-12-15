@@ -1,6 +1,6 @@
 ---
 title: Cyclic Redundancy Check (CRC)
-draft:
+draft: false
 tags:
 ---
 ![[CRC.png]]

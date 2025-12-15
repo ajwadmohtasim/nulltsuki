@@ -12,3 +12,7 @@ My domain for all academic notes
 - [[Transmission Media]]
 - [[Cyclic Redundancy Check (CRC)]]
 - [[Multiplexing]]
+## CSE3107 : Operating System
+- [[Processes]]
+- [[CPU Scheduling]]
+- [[Deadlock]]

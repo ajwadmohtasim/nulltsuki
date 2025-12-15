@@ -1,8 +1,9 @@
 ---
 title: CPU Scheduling
-draft: true
+draft: false
 tags:
 ---
+>Note's credit : Zunayed Iqbal Shahed
 ## What is CPU Scheduling?
 
 <u>CPU Scheduling is a process used by the Operating System to decide which task or process (program in execution) gets to use the CPU at a particular time.</u>
@@ -178,25 +179,6 @@ Now we do the **RTT**:
 
 All tasks a, b, c are schedulable under fixed-priority (RMS) scheduling. Task a finishes exactly at its period, which is the tightest response time.
 
-## Deadlock
-
-<u>A deadlock is a situation where a set of processes gets permanently stuck because each process is waiting for a resource held by another process, and none of them can proceed.</u>
-
-Deadlock can arise if the following four conditions hold simultaneously (Necessary Conditions):
-
-1. **Mutual Exclusion:** Only one process can use a resource at any given time (non-sharable resources)
-2. **Hold and Wait:** A process is holding at least one resource and is waiting to acquire other resources held by other processes
-3. **No Preemption:** A resource cannot be taken from a process unless the process releases it
-4. **Circular Wait:** A set of processes are waiting for each other in circular fashion
-
-![[Deadlock.jpg | center]]
-
-The above image demonstrates a circular wait deadlock:
-- **P1** is holding **R1** and waiting for **R2** (held by P2)
-- **P2** is holding **R2** and waiting for **R3** (held by P3)
-- **P3** is holding **R3** and waiting for **R4** (held by P4)
-- **P4** is holding **R4** and waiting for **R1** (held by P1)
-
 ## Scheduling Criteria
 
 1. **CPU Utilization**: Keep the CPU as busy as possible. Theoretically ranges from 0 to 100%, but in real-time systems varies from 40% to 90% depending on system load.
@@ -362,7 +344,6 @@ Processes that occur irregularly but have a minimum inter-arrival time between o
 
 ![[FCFS Scene 1.jpg | 650 center]]
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#4A90E2','primaryTextColor':'#2C3E50','primaryBorderColor':'#34495E','lineColor':'#7F8C8D','secondaryColor':'#5CB85C','tertiaryColor':'#E67E22','background':'#ECF0F1','mainBkg':'#BDC3C7','secondBkg':'#95A5A6','textColor':'#2C3E50','fontSize':'14px'}}}%%
 gantt
     title FCFS Scheduling (Arrival & Burst Time)
     dateFormat  X
@@ -390,7 +371,6 @@ gantt
 
 ![[FCFS Scene 2.jpg | 650 center]]
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#4A90E2','primaryTextColor':'#2C3E50','primaryBorderColor':'#34495E','lineColor':'#7F8C8D','secondaryColor':'#5CB85C','tertiaryColor':'#E67E22','background':'#ECF0F1','mainBkg':'#BDC3C7','secondBkg':'#95A5A6','textColor':'#2C3E50','fontSize':'14px'}}}%%
 gantt
     title FCFS Scheduling (Arrival & Burst Time)
     dateFormat  X
@@ -408,11 +388,11 @@ gantt
     P3 (Executes 8–12) :active, p3, 8, 12
 ```
 
-| Process | AT | BT | Start Time | CT | WT | TAT |
-|---------|----|----|-----------|----|----|-----|
-| P2 | 0 | 3 | 0 | 3 | 0 | 3 |
-| P1 | 2 | 5 | 3 | 8 | 1 | 6 |
-| P3 | 4 | 4 | 8 | 12 | 4 | 8 |
+| Process | AT  | BT  | Start Time | CT  | WT  | TAT |     |
+| ------- | --- | --- | ---------- | --- | --- | --- | --- |
+| P2      | 0   | 3   | 0          | 3   | 0   | 3   |     |
+| P1      | 2   | 5   | 3          | 8   | 1   | 6   |     |
+| P3      | 4   | 4   | 8          | 12  | 4   | 8   |     |
 
 **Average Waiting Time:** 1.67 ms  
 **Average Turnaround Time:** 5.67 ms
@@ -432,7 +412,7 @@ Significantly reduces average waiting time. May cause starvation if shorter proc
 
 ![[SJF.jpg | center]]
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#4A90E2','primaryTextColor':'#2C3E50','primaryBorderColor':'#34495E','lineColor':'#7F8C8D','secondaryColor':'#5CB85C','tertiaryColor':'#E67E22','background':'#ECF0F1','mainBkg':'#BDC3C7','secondBkg':'#95A5A6','textColor':'#2C3E50','fontSize':'14px'}}}%%
+
 gantt
     title Shortest Job First (Arrival & Burst Time)
     dateFormat  X

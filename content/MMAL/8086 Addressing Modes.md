@@ -45,7 +45,7 @@ MOV DS,AX
 
 MOV DS,0123H    ;illegal
 ```
-![[Immediate Addressing Mode.png | 700 center]]
+
 ## Direct Addressing mode
  Compared to Immediate addressing mode (where the operand itself is provided in the instruction), in direct addressing, the the address of the operand is provided with the instruction.
 ```
@@ -57,7 +57,7 @@ Example:
 MOV DL,[2400]   ;move contents of DS:2400H into DL
 ```
 Here, the data is in some memory location(s) and the address of the <u>data in memory comes immediately after the instruction</u>. This address is offset address and it's <u>physical address can be calculated by <b>shifting left</b> the <b>DS register</b> and adding it to the offset</u>. In the above case, the physical address is calculated by combining the contents of offset at location 2400 with `DS` (Data Segment register). 
-![[DirectMemoryAddressing.png | 700 center]]
+
 
 ## Register indirect addressing mode
 In the register indirect addressing mode, the <u>address of the memory location where the operand resides is held by a register</u>. The registers used for this purpose are `SI, DI, BP and BX`. These are combined with `DS` to generate the 20-bit physical address.
@@ -94,7 +94,7 @@ MOV CX,[BX]+10  ;move DS:BX+10 and DS:BX+10+1 into CX
 MOV AL,[BP]+5   ;PA = SS(shifted left) + BP + 5
 ```
 *Note :* `[BP]+5`, `[BX]+10` are the effective addresses.
-![[Base Relative Addressing.png | 700 center]]
+
 Here, `BX` or `BP` would hold the base value. The displacement value can be an `signed 8-bit` or `unsigned 16-bit` value. Incase of `8-bit` value it's extended to `16-bit` before adding to the base value. The default segment registers used for the calculation of **Physical Address** (PA) are `DS` for `BX` and `SS` for `BP`. <u>The base register provides a reference point, and the displacement adds an offset to that reference</u>. Together, they determine the location of the operand in memory. 
 ```
 MOV AX, [BX + 08H]
