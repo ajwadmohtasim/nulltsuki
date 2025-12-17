@@ -1,6 +1,6 @@
 ---
 title: MySQL Lab Final
-draft: true
+draft: false
 tags:
 ---
 

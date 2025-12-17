@@ -56,7 +56,135 @@ SELECT * FROM table1 NATURAL FULL JOIN table2;
 
 ## VIEWS
 
+## Authorization 
 
+Authorization defines **what actions a user is allowed to perform** on database objects.
+#### A. Authorization on Database Data
+These control access to the **contents** of relations (tables/views):
+- **Read** – Allows reading/querying data, but **no modification**.
+- **Insert** – Allows insertion of **new tuples**, but no change to existing ones.
+- **Update** – Allows **modification** of existing data, but **no deletion**.
+- **Delete** – Allows **removal** of tuples from a relation.
+#### B. Authorization on Database Schema
+These control changes to the **structure** of the database:
+- **Index** – Allows creation and deletion of indices.
+- **Resources** – Allows creation of new relations (tables).
+- **Alteration** – Allows adding or removing attributes (columns).
+- **Drop** – Allows deletion of relations.
 
+### GRANT
+The `GRANT` statement is used to **confer privileges**.
+```sql
+grant <privilege list>
+on <relation name | view name>
+to <user list>;
+```
+### User List Can Be
+- A **specific user-id**
+- **public** → grants the privilege to **all users**
+- A **role**
 
+**Important Rules**
+- Granting a privilege on a **view** does **not** automatically grant privileges on the underlying tables.
+- The **grantor must already possess** the privilege (or be the DBA).
 
+### Privileges in SQL
+
+| Privilege        | Meaning                                      |
+| ---------------- | -------------------------------------------- |
+| `select`         | Read/query access to a table or view         |
+| `insert`         | Ability to insert new tuples                 |
+| `update`         | Ability to modify existing tuples            |
+| `delete`         | Ability to delete tuples                     |
+| `all privileges` | Shortcut for granting all allowed privileges |
+```sql
+grant select on instructor to U1, U2, U3;
+```
+This allows users **U1, U2, and U3** to read data from the `instructor` relation.
+### Revoking Authorization (REVOKE)
+
+The `REVOKE` statement is used to **remove privileges**.
+
+### General Syntax
+
+```sql
+revoke <privilege list>
+on <relation name | view name>
+from <user list>;
+```
+
+### Example
+
+```sql
+revoke select on branch from U1, U2, U3;
+```
+
+### Key Points
+
+- Using `all` revokes **all privileges** held by the user.
+    
+- If `public` is revoked, **all users lose the privilege**, except those who were granted it explicitly.
+    
+- If a privilege was granted **multiple times** by different users, revoking one grant may **not remove** the privilege.
+    
+- **Cascading effect**: all privileges that **depend** on the revoked privilege are also revoked.
+    
+
+---
+
+## 5. Roles in SQL
+
+Roles are used to **group privileges** and simplify authorization management.
+
+### Creating and Granting Roles
+
+```sql
+create role instructor;
+grant instructor to Amit;
+```
+
+### Granting Privileges to Roles
+
+```sql
+grant select on takes to instructor;
+```
+
+### Role Hierarchy (Inheritance)
+
+Roles can be granted to other roles.
+
+```sql
+create role teaching_assistant;
+grant teaching_assistant to instructor;
+```
+
+Here, **instructor inherits all privileges** of `teaching_assistant`.
+
+### Chain of Roles
+
+```sql
+create role dean;
+grant instructor to dean;
+grant dean to Satoshi;
+```
+
+Satoshi now indirectly receives **all privileges** of `instructor`.
+
+---
+
+## 6. Authorization on Views
+Views provide **controlled access** to data.
+### Example View
+
+```sql
+create view geo_instructor as
+select *
+from instructor
+where dept_name = 'Geology';
+```
+
+### Granting Access to a View
+
+```sql
+grant select on geo_instructor to geo_staff;
+```

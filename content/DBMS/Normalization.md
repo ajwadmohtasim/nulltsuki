@@ -78,7 +78,7 @@ A table is in 2NF if it is in 1NF and has no **partial dependency**. All non-pri
 > For example - $XY$ is a candidate key of a table and $Y \rightarrow Z$. So $Z$ is partially dependent on $XY$.
 
 **3NF (Third Normal Form)**  
-A table is in 3NF if it is in 2NF and has no transitive dependency. For every FD $( X \rightarrow Y )$, either $( X )$ is a super key or $( Y )$ is a prime attribute.
+A table is in 3NF if it is in 2NF and has no transitive dependency. For every FD $( X \rightarrow Y )$, either $( X )$ is a candidate key or $( Y )$ is a prime attribute.
 
 **BCNF (Boyce–Codd Normal Form)**  
 A stronger form of 3NF. For every FD $( X \rightarrow Y )$, $( X )$ must be a candidate key or super key.
@@ -91,7 +91,7 @@ A stronger form of 3NF. For every FD $( X \rightarrow Y )$, $( X )$ must be a ca
 >$AB^+ = \{A,B,C,D,E,F\}$ so our $\text{CK} = \{AB\}$ \
 >$FB^+ = \{F,B,A,C,D,E\}$, since $F\rightarrow A$. | $\text{CK} = \{AB,FB\}$ \
 >$EB^+ = \{E,B,F,A,C,D\}$, since $E\rightarrow F$. | $\text{CK} = \{AB,FB,EB\}$ \
->$CB^+ = \{C,B,D,E,F,A\}$, since $C\rightarrow DE$ or $C\rightarrow E$. | $\text{CK} = \{AB,FB,EB,CB\}$ \
+>$CB^+ = \{C,B,D,E,F,A\}$, since $C\rightarrow DE$ or $C\rightarrow E$. | $\text{CK} = \{AB,FB,EB,CB\}$ 
 >
 >**# Step 2 : Write all Prime and Non-Prime Attributes:** \
 >From $\text{CK}$ we get, \
@@ -103,9 +103,9 @@ A stronger form of 3NF. For every FD $( X \rightarrow Y )$, $( X )$ must be a ca
 > \text{FD} & \text{BCNF} & \text{3NF} & \text{2NF} & \text{1NF} \\
 > \hline
 > AB \to C & \checkmark & \checkmark & \checkmark & \checkmark \\
-> C \to DE & \times & \times & \checkmark & \checkmark \\
-> E \to F & \times & \times & \checkmark & \checkmark \\
-> F \to A & \times & \times & \checkmark & \checkmark \\
+> C \to DE & \times & \times & \times & \checkmark \\
+> E \to F & \times & \checkmark & \checkmark & \checkmark \\
+> F \to A & \times & \checkmark & \checkmark & \checkmark \\
 > \hline
 > \end{array}
 >$$
@@ -113,7 +113,6 @@ A stronger form of 3NF. For every FD $( X \rightarrow Y )$, $( X )$ must be a ca
 
 
 **References**
-1. 
-2. [GFG - FDs](https://www.geeksforgeeks.org/dbms/what-is-functional-dependency-in-dbms/)
-3. [IBM - database normalization](https://www.ibm.com/think/topics/database-normalization)
-4. [Gate Smashers - Normalization Example](https://youtu.be/4h8VoRnRvnE?si=ONNqtrglrYpAa2AN)
+1. [GFG - FDs](https://www.geeksforgeeks.org/dbms/what-is-functional-dependency-in-dbms/)
+2. [IBM - database normalization](https://www.ibm.com/think/topics/database-normalization)
+3. [Gate Smashers - Normalization Example](https://youtu.be/4h8VoRnRvnE?si=ONNqtrglrYpAa2AN)
