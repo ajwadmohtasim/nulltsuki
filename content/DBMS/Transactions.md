@@ -26,7 +26,7 @@ $$
            & \text{write}(B);
 \end{aligned}
 $$
-Here, we may consider accounts A and B have 1000 and 2000 respectively and based on the above expressions, we take $50 from A and transfer it to B. 
+Here, we may consider accounts A and B have 1000 and 2000 respectively and based on the above expressions, we take 50 from A and transfer it to B. 
 
 >The terms **read()** and **write()** are Transaction operations. **read()** transfers the data item $X$ from database $\rightarrow$ a variable. **write()** will transfer the variable $X$ from the main-memory buffer (RAM) $\rightarrow$  database.
 

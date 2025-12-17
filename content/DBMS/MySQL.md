@@ -8,7 +8,6 @@ tags:
 Before starting, here are the SQL commands at a glance:
 
 <div align="center">
-
 | SQL Command       | Description                      |
 | ----------------- | -------------------------------- |
 | `SELECT`          | Extracts data from a database    |
