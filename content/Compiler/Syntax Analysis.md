@@ -3,9 +3,50 @@ title: Syntax Analysis
 draft: true
 tags:
 ---
+## Notation for a Shift-Reduce Execution
 
-![[Parser.png | 700 center]]
+**Grammar Productions:**
 
-There are three general types of parsers for grammars: universal, top-down, and bottom-up. Universal parsing methods such as the Cocke-Younger-Kasami algorithm and Earley's algorithm can parse any grammar. But these are in-efficient. 
+$$
+\begin{array}{rl}
+\mathbf{1.} & E \rightarrow E + T \\
+\mathbf{2.} & E \rightarrow T \\
+\mathbf{3.} & T \rightarrow T * F \\
+\mathbf{4.} & T \rightarrow F \\
+\mathbf{5.} & F \rightarrow (E) \\
+\mathbf{6.} & F \rightarrow id \\
+\end{array}
+$$
 
-The methods commonly used in compilers can be classified as being either top-down or bottom-up. As implied by their names, top-down methods build parse trees from the top (root) to the bottom (leaves), while bottom-up methods start from the leaves and work their way up to the root. In either case, the input to the parser is scanned from left to right, one symbol at a time
+---
+
+**Parsing Trace:**
+
+$$
+\begin{array}{|l|l|l|}
+\hline
+\textbf{STACK} & \textbf{INPUT} & \textbf{ACTION} \\
+\hline
+\$ & (id+id)*id\$ & \\
+\$( & id+id)*id\$ & \text{Shift} \\
+\$(id & +id)*id\$ & \text{Shift} \\
+\$(F & +id)*id\$ & \text{Reduce by } F \rightarrow id \\
+\$(T & +id)*id\$ & \text{Reduce by } T \rightarrow F \\
+\$(E & +id)*id\$ & \text{Reduce by } E \rightarrow T \\
+\$(E+ & id)*id\$ & \text{Shift} \\
+\$(E+id & )*id\$ & \text{Shift} \\
+\$(E+F & )*id\$ & \text{Reduce by } F \rightarrow id \\
+\$(E+T & )*id\$ & \text{Reduce by } T \rightarrow F \\
+\$(E & )*id\$ & \text{Reduce by } E \rightarrow E + T \\
+\$(E) & *id\$ & \text{Shift} \\
+\$F & *id\$ & \text{Reduce by } F \rightarrow (E) \\
+\$T & *id\$ & \text{Reduce by } T \rightarrow F \\
+\$T* & id\$ & \text{Shift} \\
+\$T*id & \$ & \text{Shift} \\
+\$T*F & \$ & \text{Reduce by } F \rightarrow id \\
+\$T & \$ & \text{Reduce by } T \rightarrow T * F \\
+\$E & \$ & \text{Reduce by } E \rightarrow T \\
+\$E & \$ & \text{Accept} \\
+\hline
+\end{array}
+$$
