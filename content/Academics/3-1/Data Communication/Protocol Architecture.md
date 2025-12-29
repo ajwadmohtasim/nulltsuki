@@ -22,9 +22,7 @@ A number of applications have been standardized to operate on top of TCP.
 
 **OSI** protocol was designed to replace the **TCP/IP** but that didn't happen. The design is complex and within fewer layers TCP/IP was able to get it's job done. 
 
-![[OSI layer.png | 350 right]]
-
-In summary:
+![[OSI layer.png | 350 right]]In summary:
 1. **Physical Layer:** Sends **raw bits** across the medium (e.g., Hubs).
 2. **Data Link Layer:** Sends **frames** between nodes. (e.g., Switches).
 3. **Network Layer:** Sends **packets** from **source to destination** using **IP & routing** (e.g., Routers).

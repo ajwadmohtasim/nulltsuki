@@ -15,7 +15,6 @@ My domain for all academic notes
 - [[CPU Scheduling]]
 - [[Deadlock]]
 
-
 ## CSE3109 : Data Communication
 - [[Data Communication]]
 - [[Protocol Architecture]]
@@ -23,3 +22,6 @@ My domain for all academic notes
 - [[Transmission Media]]
 - [[Cyclic Redundancy Check (CRC)]]
 - [[Multiplexing]]
+- [[Internet Protocols (IPv4)]]
+- [[IPv4 Addressing]]
+
