@@ -288,7 +288,7 @@ The efficiency of a page replacement algorithm directly affects the page fault r
 	This way, frequently used pages are less likely to be removed.
 	Traditionally, Second Chance and its variant Clock were considered less efficient than LRU (Least Recently Used).
 
-
+We can understand this with the following example:
 ![[FIFO example.png| 650 center]]
 ![[LRU example.png|650 center]]
 ![[Second chance example.png|650 center]]
