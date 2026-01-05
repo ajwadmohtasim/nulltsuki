@@ -1,6 +1,6 @@
 ---
 title: Final Exam Prep
-draft: false
+draft: true
 tags:
 ---
 - 18 December - DBMS

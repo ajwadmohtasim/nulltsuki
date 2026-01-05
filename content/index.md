@@ -14,6 +14,7 @@ My domain for all academic notes
 - [[Processes]]
 - [[CPU Scheduling]]
 - [[Deadlock]]
+- [[Memory Management]]
 
 ## CSE3109 : Data Communication
 - [[Data Communication]]
