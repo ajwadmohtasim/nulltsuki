@@ -287,7 +287,7 @@ The efficiency of a page replacement algorithm directly affects the page fault r
 		- If the bit = 1, it is reset to 0 and the page gets a “second chance,” moving to the back of the queue.
 	This way, frequently used pages are less likely to be removed.
 	Traditionally, Second Chance and its variant Clock were considered less efficient than LRU (Least Recently Used).
-	![[FIFO example.png| 650 center]]
-	![[LRU example.png|650 center]]
-	![[Second chance example.png|650 center]]
+![[FIFO example.png| 650 center]]
+![[LRU example.png|650 center]]
+![[Second chance example.png|650 center]]
 	
