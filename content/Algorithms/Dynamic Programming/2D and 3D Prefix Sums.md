@@ -1,10 +1,9 @@
 ---
 title: Prefix Sums
-draft: true
+draft: false
 tags:
   - example-tag
 ---
-
 # 2D Prefix Sum
 
 ![[2DprefixSUM.png]]

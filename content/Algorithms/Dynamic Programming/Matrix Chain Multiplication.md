@@ -32,8 +32,21 @@ $$\text{Cost} = \text{Cost of } (M_i \dots M_j) + \text{Cost of } (M_{j+1} \dots
 Our Final Result will be $M_{i,j} \times M_{j+1,k}$ , where for each of the split, they require $r_i \times c_j \times c_k$ operations. 
 So our final formula stands as 
 
-$$f(i, k) = \begin{cases} 0 & \text{if } i = k \quad \text{(cost of one matrix is zero)} \\ \min\limits_{i \leq j < k} \left( f(i, j) + f(j+1, k) + p_{i-1} \cdot p_j \cdot p_k \right) & \text{if } i < k \end{cases}$$
-
+%%$$$f(i, k) = \begin{cases} 0 & \text{if } i = k \quad \text{(cost of one matrix is zero)} \\ \min\limits_{i \leq j < k} \left( f(i, j) + f(j+1, k) + p_{i-1} \cdot p_j \cdot p_k \right) & \text{if } i < k \end{cases}$$%%
+$$
+\begin{aligned}
+f(i,i) &= 0,\\[4pt]
+f(i,k) &=
+\min_{i\le j<k}
+\left[
+\begin{aligned}
+&f(i,j)+f(j+1,k)\\
+&+p_{i-1}p_jp_k
+\end{aligned}
+\right],
+\quad i<k.
+\end{aligned}
+$$
 Note that, we store the dimension as an Array. For $n$ Matrices we have about $(n+1)$ elements in array $p$ . So $r_i$ is by convention is stored as $p_{i-1}$ .
 $$
 \begin{array}{|c|c|c|}
@@ -56,7 +69,7 @@ The objective of this table is to hold the answer at the top right of the table:
 ![[MatrixChainMulti2DTable.png | center]]
 The recursive-call further splits it to the base cases. The next split case where $(ABC)(D)$ : $f(0,2) + f(3,3)$ calls further splits on the base cases. For now the base cases are 0 as self multiplication isn't possible. 
 
-![[MatrixChainMulti2DTable2.png | right ]]**Top Down Tabulation** is always a way to implement the DP approach. However, **Bottom up** does something better. 
+![[MatrixChainMulti2DTable2.png | right |593]]**Top Down Tabulation** is always a way to implement the DP approach. However, **Bottom up** does something better. 
 We can observe another property here if we flip the table. That is, the diagonals actually maintains the subsequence chain length. 
 And those are dependent on the lower diagonals. 
 
