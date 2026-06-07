@@ -27,7 +27,7 @@ This can be further simplified, if we can translate $(a,b)$ to origin $(0,0)$ an
 $$y=\frac{n}{m}x$$
 There's another interesting thing with slope, which is we can find other lattice points using the slope itself. Consider the following graph:
 
-![[lattice-point.png]]
+![[lattice-point.png | 500 center]]
 
 Let our line segment be $(2,3)$ and $(4,6)$. The slope is $\frac{3}{2}$. The next lattice point on the extended line segment would be $(4+2,6+3) \to (6,9)$ and $(6+2,9+3) \to (8,12)$ so on. So, whatever it is, $\frac{n}{m}$ needs to be in it's lowest form. That is, $\frac{n}{m} = \frac{q}{r}$ where $\text{gcd}(q,r)=1$.  This means, $m=kr, n=kq$ and $k = gcd(m,n)$.
 
@@ -96,7 +96,7 @@ Now that we know our sweeping line (rectangle kind of), we are going to maintain
 
 So two things - we would be iterating in the interval $[y-\delta, y + \delta]$ and remove any $x$-coords that is less than $x-\delta$, while comparing it's distance with $p(x,y)$ and update $\delta$. 
 
-![[closet_pair_sweep_line.png]]
+![[closet_pair_sweep_line.png | 500 center]]
 
 I would be adapting this algorithm according to what we've been following so far:
 ```
