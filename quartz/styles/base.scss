@@ -502,7 +502,7 @@ pre {
 
     & > code[data-language="terminal"] {
       color: #d4d4d4;
-      
+
       & > [data-line] {
         &::before {
           content: ">";
@@ -520,10 +520,10 @@ pre {
   :root[saved-theme="dark"] &:has(> code[data-language="terminal"]) {
     background: #282a2c;
     border: 1px solid #30363d;
-    
+
     & > code[data-language="terminal"] {
       color: #c9d1d9;
-      
+
       & > [data-line]::before {
         color: #58a6ff;
       }
@@ -550,9 +550,11 @@ p {
   overflow-x: auto;
 
   & > table {
-    margin: 1rem;
+    margin: 1rem 0;
     padding: 1.5rem;
+    width: 100%;
     border-collapse: collapse;
+    border: 1.5px solid var(--gray);
 
     th,
     td {
@@ -567,18 +569,60 @@ p {
 
 th {
   text-align: left;
-  padding: 0.4rem 0.7rem;
-  border-bottom: 2px solid var(--gray);
+  padding: 0.35rem;
+  border-bottom: 1.5px solid var(--gray);
+  vertical-align: top;
+  background: var(--lightgray);
+  border: 1.5px solid var(--gray);
 }
 
 td {
-  padding: 0.2rem 0.7rem;
+  padding: 0.35rem;
+  vertical-align: top;
+  border: 1.5px solid var(--gray);
 }
 
 tr {
-  border-bottom: 1px solid var(--lightgray);
-  &:last-child {
-    border-bottom: none;
+  border: none;
+}
+
+.table-cell-copyable {
+  min-width: 75px;
+  border: 1.5px solid var(--gray);
+  border-radius: 0;
+  background: transparent;
+  font-weight: inherit;
+  line-height: inherit;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: color-mix(in srgb, var(--light) 96%, var(--lightgray) 4%);
+  }
+
+  &:focus {
+    outline: 1px solid var(--lightgray);
+    outline-offset: -1px;
+  }
+
+  &.copied {
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--light) 94%, var(--secondary) 6%);
+  }
+}
+
+th.table-cell-copyable {
+  background: var(--lightgray);
+
+  &:hover {
+    background: color-mix(in srgb, var(--lightgray) 88%, var(--secondary) 12%);
+  }
+
+  &.copied {
+    border-color: var(--secondary);
+    background: color-mix(in srgb, var(--lightgray) 90%, var(--secondary) 10%);
   }
 }
 

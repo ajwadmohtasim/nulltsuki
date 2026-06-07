@@ -1,0 +1,40 @@
+.fontswitcher {
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  text-align: inherit;
+  flex-shrink: 0;
+  color: var(--darkgray);
+  font-family: var(--headerFont);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+
+  &:hover {
+    color: var(--secondary);
+  }
+
+  &:focus {
+    outline: 1px solid var(--lightgray);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
+:root[saved-font="serif"] {
+  --titleFont: "Georgia", "Times New Roman", serif;
+  --headerFont: "Georgia", "Times New Roman", serif;
+  --bodyFont: "Georgia", "Times New Roman", serif;
+}
+
+:root[saved-font="mono"] {
+  --titleFont: "IBM Plex Mono", "Consolas", "SFMono-Regular", monospace;
+  --headerFont: "IBM Plex Mono", "Consolas", "SFMono-Regular", monospace;
+  --bodyFont: "IBM Plex Mono", "Consolas", "SFMono-Regular", monospace;
+  --codeFont: "IBM Plex Mono", "Consolas", "SFMono-Regular", monospace;
+}
