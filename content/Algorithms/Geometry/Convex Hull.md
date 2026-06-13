@@ -22,7 +22,7 @@ The first algorithm we will be looking into is the **Graham Scan**. With a time 
 
 It starts from the bottom lowest point with the $y$ value, let's call it pivot $P_{0}$. If there are multiple lowest point, lowest $x$ value get's the priority. We then have to sort all the $n$ points of $P$ in the increasing order of the angle point $p$ makes around the pivot $P_{0}$ with a CCW check. The sorted result will be kept in a temporary set of points $P'$.
 
-![[graham-scan.png | 400]]
+![[graham-scan.png | 500]]
 
 The sorting however depends on whether the pivot $P_0$ , point $a, b$ is making a CCW / left turn. If that's true then $a$ comes before $b$. 
 
@@ -33,4 +33,17 @@ Once our points are sorted, we would maintain a stack $S$ for the candidate poin
 
 ![[graham-scan-2.png]]
 
-Initially, we consider the $N-1, P_0, 1$ points as they form a CCW / left turn for sure. From there, we keep working our way for each points belonging to $P'$. If 
+Initially, we consider the $N-1, P_0, 1$ points as they form a CCW / left turn for sure. From there, we keep working our way for each points belonging to $P'$. If we find a CW / Right turn we will try to pop them. Here's how it will work - $\{9,0,1\} \to \{0,1,2\} \to \{1,2,3\}$. Here, $\{1,2,3\}$ is making a CW / Right Turn, so we will pop $\{2\}$.
+So again, $\{9,0,1\} \to \{0,1,3\} \to \{1,3,4\} \to \{3,4,5\} \to \{4,5,6\}$. Now, $\{4,5,6\}$ is making a CW / Right turn, pop $\{5\}$ and continue from $\{3,4,6\}$ instead of $\{3,4,5\}$. 
+
+There can be a possibility that, we will have multiple consecutive CCW turns, but a CW / Right turn after that.
+![[graham-scan-3.png]]
+We may pop that turn but we'd remain wrong still. So it's essential we always keep in check if we're making right convex hull. 
+For that, we can use a vector stack to store the points and perform our operations accordingly.
+
+```
+vector<pt> ch_graham(vector<pt> &pts) {
+	vector<pt> p(pts);
+	int n = 
+}
+```
