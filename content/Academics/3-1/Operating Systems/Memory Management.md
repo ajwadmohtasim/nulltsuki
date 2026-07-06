@@ -1,6 +1,6 @@
 ---
 title: Memory Management
-draft:
+draft: false
 tags:
   - OperatingSystem
 ---

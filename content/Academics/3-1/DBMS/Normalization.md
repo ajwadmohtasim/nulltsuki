@@ -68,7 +68,6 @@ $(BCH)^+ = \{A,B,C,D,H\} \neq R \;\Rightarrow\; \text{not a candidate key}$\
 $(DEH)^+ = \{A,B,C,D,E,H\} \;\Rightarrow\; \text{candidate key}$\
 $\boxed{\text{Candidate Keys} = \{AEH,\; BEH,\; DEH\}}$
 
-
 ## Normal Forms
 **1NF (First Normal Form)**  
 A table is in 1NF if it has no multivalued or repeating tuple. Each field must contain atomic (indivisible) values. The base table should contain the primary key, and multivalued attributes must be moved into separate tables.

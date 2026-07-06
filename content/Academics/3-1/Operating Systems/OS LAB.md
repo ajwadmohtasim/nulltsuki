@@ -1,6 +1,6 @@
 ---
 title: OS Scheduling Algorithms
-draft: true
+draft: false
 tags:
 ---
 # First-Come First-Serve (FCFS) 

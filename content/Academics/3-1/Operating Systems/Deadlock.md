@@ -1,6 +1,6 @@
 ---
 title: Deadlock
-draft:
+draft: false
 tags:
 ---
 >Note's credit : Zunayed Iqbal Shahed

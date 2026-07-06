@@ -1,16 +1,8 @@
 ---
-title: Computational Geometry
+title: Computational Geometry Examples
 draft: true
 tags:
 ---
-
-An Introduction to C++ Templates:
-```cpp
-template <typename T>
-```
-
----
-
 Basic 2D point can be represented by the following way:
 ```
 template <typename T>
