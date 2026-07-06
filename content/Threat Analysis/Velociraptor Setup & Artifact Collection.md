@@ -31,7 +31,30 @@ Setup process of velociraptor in Linux Ubuntu AMD64 variant:
 	`which velociraptor`
 7. Velociraptor is now installed and ready to use.
 
-With this 7 step the velociraptor is installed in the laptop. Now lets get to know some basics of Velociraptor.
+With this 7 step the velociraptor is installed in the laptop.
+
+On let's look at **windows** server setup, which is also pretty simple as the Linux setup:
+1. Open CMD as an administrator and make a directory to your desired path.
+2. Download the executable file for windows from [official website](https://docs.velociraptor.app/downloads/)
+3. Copy the exe file in the directory.
+4. Then open powershell and write: `velociraptor-v0.77.1-windows-amd64.exe config generate -i`, the v0.77.1 is the version I downloaded, you may have later version downloaded.
+5. Answer the question accordingly (make sure to choose Windows).
+6. If prompted about using WebSocket, enter **"No"**
+7. If prompted about using the registry to store writeback files, please enter **"N"**
+8. When asked about which **DynDNS** provider is used, select **None** and press enter.
+9. For the GUI username, please **just hit enter** to end.
+10. If it asks if you would to **"restrict VQL"** functionality on the server, please enter **"N"**
+11. When it asks where to write the server and client configs, **just hit enter** on both prompts to accept the defaults.
+12. Let’s add a **GUI** user.
+	`velociraptor-v0.77.1-windows-amd64.exe --config server.config.yaml user add root --role administrator`
+13. Set password
+14. These steps will create a .msi installer of the server (same as Linux that creates a deb installer for server).
+15. Run the .msi, `velociraptor-v0.77.1-windows-amd64.msi`
+16. Let's start server: `velociraptor-v0.72.3-windows-amd64.exe --config server.config.yaml frontend -v`
+17. visit `<your_server_url>:<gui_port_address>/app/index.html`.
+18. Some browser's may give a caution alert. Simply Go to advanced and Select Continue.
+
+ Now lets get to know some basics of Velociraptor.
 
 > [!note] Take a note!!
 >From here onwards you will see **velociraptor** in the command lines example. For example in the above Linux command I wrote `velociraptor version`. Now what you need to understand is it may not work on your machine. In my case I stored the velociraptor's binary files in `usr/local/bin` which makes velociraptor a part of the system of Linux. If you used any other path, you have to write `./velociraptor`. If you are on a windows machine you have to write `./velociraptor.exe`. For simplicity I will be writing just `velociraptor` for the rest of the article.
@@ -209,6 +232,7 @@ Click on the client ID and you will get to see all the basic information regardi
 ![[Client info picture.png | 600]]
 
 Now let's stop exploring what we can do with client and move on to next type of installation.
+**This setup of both server and client on same machine is useful for testing purposes.**
 
 **Variant-2: Setting up Client in a Linux Machine**
 This one is quite simple and we have already most of the work beforehand (in the variant 1). Follow every step in the server PC up until you get the `client.config.yaml`. This yaml file will be distributed in each and every client machine.
@@ -243,7 +267,7 @@ According to the documentation the easiest way to set up velociraptor on client'
 - In the Services of windows you can see it as running.
 
 > [!tip] 
-> For testing purposes in case you are considering to run Velociraptor Server on WSL and Client on the same actual windows machine. Don't! It will not work. Took a lot of time to figure it out : )
+> For testing purposes in case you are considering to run Velociraptor Server on WSL and Client on the same actual windows machine. Don't! It will not work. Took a lot of time to figure it out
 
 
 With this we have a decent idea to install and setup velociraptor on different systems. and How to establish connection between sever and client.

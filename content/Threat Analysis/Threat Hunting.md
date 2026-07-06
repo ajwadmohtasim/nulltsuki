@@ -5,7 +5,6 @@ tags:
   - Threat-Hunting
   - Velociraptor
 ---
-
 According to [IBM](https://www.ibm.com/think/topics/threat-hunting) Threat Hunting is a proactive (prevention before occurrence happens) approach, where security analysts search through networks, endpoints and datasets to detect hidden malicious activity that has bypasses automated security tools.
 Unlike traditional reactive (opposite to proactive; where to find cure after the occurrence happened) approaches, threat hunting assumes an attacker is already inside the environment and uses human expertise to uncover stealthy threats.
 
