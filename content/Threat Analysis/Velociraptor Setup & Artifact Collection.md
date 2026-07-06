@@ -142,6 +142,8 @@ Imagine a SOC analyst wants to determine whether malware is running on 500 compu
 | **Server**   | Central coordinator that stores data, schedules work, and manages users, artifacts, and client state                  | API, Frontend     |
 | **Frontend** | Network-facing communication layer that receives client check-ins, distributes tasks, and accepts uploaded evidence   | Server, Clients   |
 | **Client**   | Endpoint agent that enrolls, polls the server, executes VQL queries, collects forensic artifacts, and returns results | Frontend          |
+
+---
 Velociraptor follows a **centralized command-and-collect architecture**. The **server** decides _what_ needs to be collected, the **frontend** handles secure communication, the **clients** perform the actual forensic work on endpoints, the **API** exposes the server's capabilities, and the **GUI** provides investigators with an intuitive interface to launch investigations and analyze the collected evidence. Together, these components enable scalable remote digital forensics and threat hunting across many systems.
 
 # Velociraptor Server Setup
